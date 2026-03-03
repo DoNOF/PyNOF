@@ -8,7 +8,7 @@ try:
 except:
     pass
 
-#CJCKD5
+#CJCKD4
 #@njit(parallel=True, cache=True)
 def CJCKD4(n,no1,ndoc,nsoc,nbeta,nalpha,ndns,ncwo,MSpin):
     """PNOF4 coefficients C^J and C^K that multiply J and K integrals
@@ -328,7 +328,7 @@ def der_CJCKD7(n,ista,dn_dgamma,no1,ndoc,nalpha,nbeta,nv,nbf5,ndns,ncwo):
 
 #CJCKD8
 @njit(parallel=True, cache=True)
-def CJCKD8(n,no1,ndoc,nsoc,nbeta,nalpha,ndns,ncwo,MSpin):
+def CJCKD8(n,ista,no1,ndoc,nsoc,nbeta,nalpha,ndns,ncwo,MSpin):
     """GNOF coefficients C^J and C^K that multiply J and K integrals"""
 
     h_cut = 0.02*np.sqrt(2.0)
@@ -358,23 +358,27 @@ def CJCKD8(n,no1,ndoc,nsoc,nbeta,nalpha,ndns,ncwo,MSpin):
     # Interpair Electron correlation #
 
     cj12 = 2*np.outer(n,n)
-    ck12 = np.outer(n,n)
 
-    ck12[no1:nbeta,nalpha:] += np.outer(fi[no1:nbeta],fi[nalpha:])
-    ck12[nalpha:,no1:nbeta] += np.outer(fi[nalpha:],fi[no1:nbeta])
-    ck12[nalpha:,nalpha:] += np.outer(fi[nalpha:],fi[nalpha:])
+    if(ista == 0):
+        ck12 = np.outer(n,n)
 
-    # Intrapair Electron Correlation
+        ck12[no1:nbeta,nalpha:] += np.outer(fi[no1:nbeta],fi[nalpha:])
+        ck12[nalpha:,no1:nbeta] += np.outer(fi[nalpha:],fi[no1:nbeta])
+        ck12[nalpha:,nalpha:] += np.outer(fi[nalpha:],fi[nalpha:])
 
-    if(MSpin==0 and nsoc>0):
-        half = np.zeros((nsoc)) + 0.5
-        ck12[no1:nbeta,nbeta:nalpha] += 0.5*np.outer(fi[no1:nbeta],half)
-        ck12[nbeta:nalpha,no1:nbeta] += 0.5*np.outer(half,fi[no1:nbeta])
-        ck12[nbeta:nalpha,nalpha:] += np.outer(half,fi[nalpha:])
-        ck12[nalpha:,nbeta:nalpha] += np.outer(fi[nalpha:],half)
+        # Intrapair Electron Correlation
 
-    if(MSpin==0 and nsoc>1): #then
-        ck12[nbeta:nalpha,nbeta:nalpha] = 0.5
+        if(MSpin==0 and nsoc>0):
+            half = np.zeros((nsoc)) + 0.5
+            ck12[no1:nbeta,nbeta:nalpha] += 0.5*np.outer(fi[no1:nbeta],half)
+            ck12[nbeta:nalpha,no1:nbeta] += 0.5*np.outer(half,fi[no1:nbeta])
+            ck12[nbeta:nalpha,nalpha:] += np.outer(half,fi[nalpha:])
+            ck12[nalpha:,nbeta:nalpha] += np.outer(fi[nalpha:],half)
+
+        if(MSpin==0 and nsoc>1): #then
+            ck12[nbeta:nalpha,nbeta:nalpha] = 0.5
+    else:
+        ck12 = np.outer(n,n) + np.outer(fi,fi)
 
     ck12[no1:nbeta,nalpha:] += np.outer(n_d12[no1:nbeta],n_d12[nalpha:]) - np.outer(n_d[no1:nbeta],n_d[nalpha:])
     ck12[nalpha:,no1:nbeta] += np.outer(n_d12[nalpha:],n_d12[no1:nbeta]) - np.outer(n_d[nalpha:],n_d[no1:nbeta])
@@ -402,7 +406,7 @@ def CJCKD8(n,no1,ndoc,nsoc,nbeta,nalpha,ndns,ncwo,MSpin):
     return cj12,ck12
 
 @njit(parallel=True, cache=True)
-def der_CJCKD8(n,dn_dgamma,no1,ndoc,nalpha,nbeta,nv,nbf5,ndns,ncwo,MSpin,nsoc):
+def der_CJCKD8(n,ista,dn_dgamma,no1,ndoc,nalpha,nbeta,nv,nbf5,ndns,ncwo,MSpin,nsoc):
 
     h_cut = 0.02*np.sqrt(2.0)
     n_d = np.zeros((len(n)))
@@ -449,21 +453,28 @@ def der_CJCKD8(n,dn_dgamma,no1,ndoc,nalpha,nbeta,nv,nbf5,ndns,ncwo,MSpin,nsoc):
     Dcj12r = np.zeros((nbf5,nbf5,nv))
     Dck12r = np.zeros((nbf5,nbf5,nv))
     for k in prange(nv):
-        Dcj12r[:,:,k] = 2*np.outer(dn_dgamma[:,k],n)
-        Dck12r[:,:,k] = np.outer(dn_dgamma[:,k],n)
+       Dcj12r[:,:,k] = 2*np.outer(dn_dgamma[:,k],n)
+    if ista == 0:
+        for k in prange(nv):
+           Dck12r[:,:,k] = np.outer(dn_dgamma[:,k],n)
 
-    for i in prange(nalpha,nbf5):
-        Dck12r[no1:nbeta,i,:] += dfi_dgamma[no1:nbeta,:]*fi[i]
-        Dck12r[i,no1:nbeta,:] += np.outer(fi[no1:nbeta],dfi_dgamma[i,:])
-        Dck12r[i,nalpha:nbf5,:] += np.outer(fi[nalpha:nbf5],dfi_dgamma[i,:])
+        for i in prange(nalpha,nbf5):
+           Dck12r[no1:nbeta,i,:] += dfi_dgamma[no1:nbeta,:]*fi[i]
+           Dck12r[i,no1:nbeta,:] += np.outer(fi[no1:nbeta],dfi_dgamma[i,:])
+           Dck12r[i,nalpha:nbf5,:] += np.outer(fi[nalpha:nbf5],dfi_dgamma[i,:])
 
-    if(MSpin==0 and nsoc>0):
-        for i in prange(nbeta,nalpha):
-            Dck12r[no1:nbeta,i,:] += 0.5*dfi_dgamma[no1:nbeta,:]*0.5
-            Dck12r[nalpha:nbf5,i,:] += dfi_dgamma[nalpha:nbf5,:]*0.5
+        if(MSpin==0 and nsoc>0):
+            for i in prange(nbeta,nalpha):
+                Dck12r[no1:nbeta,i,:] += 0.5*dfi_dgamma[no1:nbeta,:]*0.5
+                Dck12r[nalpha:nbf5,i,:] += dfi_dgamma[nalpha:nbf5,:]*0.5
 
-    if(MSpin==0 and nsoc>1):
-        Dck12r[nbeta:nalpha, nbeta:nalpha, :] = 0.0
+        if(MSpin==0 and nsoc>1):
+            Dck12r[nbeta:nalpha, nbeta:nalpha, :] = 0.0
+    else:
+        for k in prange(nv):
+           Dck12r[:,:,k] = np.outer(dn_dgamma[:,k],n) + np.outer(dfi_dgamma[:,k],fi)
+        if(MSpin==0 and nsoc>1):
+            Dck12r[nbeta:nalpha, nbeta:nalpha, :] = 0.0
 
     for i in prange(nalpha,nbf5):
         Dck12r[no1:nbeta,i,:] += dn_d12_dgamma[no1:nbeta,:]*n_d12[i] - dn_d_dgamma[no1:nbeta,:]*n_d[i]
@@ -631,7 +642,7 @@ def PNOFi_selector(n,p):
     if(p.ipnof==7):
         cj12,ck12 = CJCKD7(n,p.ista,p.no1,p.ndoc,p.nsoc,p.nbeta,p.nalpha,p.ndns,p.ncwo,p.MSpin)
     if(p.ipnof==8):
-        cj12,ck12 = CJCKD8(n,p.no1,p.ndoc,p.nsoc,p.nbeta,p.nalpha,p.ndns,p.ncwo,p.MSpin)
+        cj12,ck12 = CJCKD8(n,p.ista,p.no1,p.ndoc,p.nsoc,p.nbeta,p.nalpha,p.ndns,p.ncwo,p.MSpin)
 
     return cj12,ck12
 
@@ -643,7 +654,7 @@ def der_PNOFi_selector(n,dn_dgamma,p):
     if(p.ipnof==7):
         Dcj12r,Dck12r = der_CJCKD7(n,p.ista,dn_dgamma,p.no1,p.ndoc,p.nalpha,p.nbeta,p.nv,p.nbf5,p.ndns,p.ncwo)
     if(p.ipnof==8):
-        Dcj12r,Dck12r = der_CJCKD8(n,dn_dgamma,p.no1,p.ndoc,p.nalpha,p.nbeta,p.nv,p.nbf5,p.ndns,p.ncwo,p.MSpin,p.nsoc)
+        Dcj12r,Dck12r = der_CJCKD8(n,p.ista,dn_dgamma,p.no1,p.ndoc,p.nalpha,p.nbeta,p.nv,p.nbf5,p.ndns,p.ncwo,p.MSpin,p.nsoc)
         
     return Dcj12r,Dck12r
 
