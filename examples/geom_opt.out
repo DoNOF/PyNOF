@@ -1,0 +1,403 @@
+   => Loading Basis Set <=
+
+    Name: CC-PVDZ
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1   entry O          line   198 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz.gbs 
+    atoms 2-3 entry H          line    22 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz.gbs 
+
+   => Loading Basis Set <=
+
+    Name: (CC-PVDZ AUX)
+    Role: JKFIT
+    Keyword: DF_BASIS_SCF
+    atoms 1   entry O          line   221 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+    atoms 2-3 entry H          line    51 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+
+   => Loading Basis Set <=
+
+    Name: CC-PVDZ
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1   entry O          line   198 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz.gbs 
+    atoms 2-3 entry H          line    22 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz.gbs 
+
+   => Loading Basis Set <=
+
+    Name: (CC-PVDZ AUX)
+    Role: JKFIT
+    Keyword: DF_BASIS_SCF
+    atoms 1   entry O          line   221 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+    atoms 2-3 entry H          line    51 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+
+   => Loading Basis Set <=
+
+    Name: (CC-PVDZ AUX)
+    Role: JKFIT
+    Keyword: DF_BASIS_SCF
+    atoms 1   entry O          line   221 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+    atoms 2-3 entry H          line    51 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+
+   => Loading Basis Set <=
+
+    Name: CC-PVDZ
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1   entry O          line   198 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz.gbs 
+    atoms 2-3 entry H          line    22 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz.gbs 
+
+   => Loading Basis Set <=
+
+    Name: (CC-PVDZ AUX)
+    Role: JKFIT
+    Keyword: DF_BASIS_SCF
+    atoms 1   entry O          line   221 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+    atoms 2-3 entry H          line    51 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+
+   => Loading Basis Set <=
+
+    Name: (CC-PVDZ AUX)
+    Role: JKFIT
+    Keyword: DF_BASIS_SCF
+    atoms 1   entry O          line   221 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+    atoms 2-3 entry H          line    51 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+
+   => Loading Basis Set <=
+
+    Name: CC-PVDZ
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1   entry O          line   198 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz.gbs 
+    atoms 2-3 entry H          line    22 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz.gbs 
+
+   => Loading Basis Set <=
+
+    Name: (CC-PVDZ AUX)
+    Role: JKFIT
+    Keyword: DF_BASIS_SCF
+    atoms 1   entry O          line   221 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+    atoms 2-3 entry H          line    51 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+
+Number of basis functions                   (NBF)    = 24
+Number of auxiliary basis functions         (NBFAUX) = 116
+Inactive Doubly occupied orbitals up to     (NO1)    = 0
+No. considered Strongly Doubly occupied MOs (NDOC)   = 5
+No. considered Strongly Singly occupied MOs (NSOC)   = 0
+No. of Weakly occ. per St. Doubly occ.  MOs (NCWO)   = 3
+Dimension of the Nat. Orb. subspace         (NBF5)   = 20
+No. of electrons                                     = 10
+Multiplicity                                         = 1
+
+Hartree-Fock
+============
+
+Nitext  Nitint      Eelec           Etot           Ediff         maxdiff    
+     0      0   -74.72351764   -65.53590090     3.32272118     1.33776124
+     1     29   -85.21279601   -76.02517927    -0.00000082     0.00045344
+No violations of the orthonormality
+
+PNOF8 Calculation (ADAM/Softmax Optimization)
+==================
+
+Nitext  Nit_orb  Nit_occ      Eelec           Etot          Ediff        Grad_orb   Grad_occ Conv Orb Conv Occ
+     0     30     71     -85.37922144   -76.19160470 -10084.37922144      8.9e-02    9.9e-06   False   True
+     1     30     44     -85.42225360   -76.23463686     -0.04303215      4.3e-02    1.5e-05   False   True
+     2     30     23     -85.42895071   -76.24133397     -0.00669711      3.0e-02    1.1e-05   False   True
+     3     30     17     -85.42940887   -76.24179213     -0.00045816      2.1e-02    1.4e-05   False   True
+     4     30      4     -85.42943212   -76.24181538     -0.00002326      1.3e-02    1.9e-05   False   True
+     5     30      0     -85.42943235   -76.24181561     -0.00000022      1.3e-02    1.9e-05   False   True
+     6     47      1     -85.42943577   -76.24181903     -0.00000342      6.7e-05    1.6e-05   True   True
+Solution does not improve anymore
+
+Lagrage sumdiff 2.8e-04 maxfdiff 7.4e-06
+
+RESULTS OF THE OCCUPATION OPTIMIZATION
+========================================
+ Idx        n        E (Hartree)
+   1    1.9999708  -20.57544277
+   2    1.9888817   -1.26300788
+   3    1.9735481   -0.73367162
+   4    1.9709402   -0.71152643
+   5    1.9774774   -0.53030854
+   6    0.0131175   -0.01739666
+   7    0.0217625   -0.00871971
+   8    0.0252336   -0.00845018
+   9    0.0069809   -0.03108660
+  10    0.0000108   -0.00737577
+  11    0.0049281   -0.00729357
+  12    0.0037012   -0.03376936
+  13    0.0007487   -0.00158945
+  14    0.0033893   -0.00108856
+  15    0.0000101   -0.01312569
+  16    0.0044771   -0.00818971
+  17    0.0035961   -0.00181743
+  18    0.0004696   -0.00022951
+  19    0.0007481   -0.00021443
+  20    0.0000082   -0.00017554
+
+----------------
+ Final Energies 
+----------------
+       HF Total Energy =     -76.0251793
+Final NOF Total Energy =     -76.2418190
+    Correlation Energy =      -0.2166398
+
+
+Elapsed Time:       2.04 (Seconds)
+Initial Geometry (Bohrs)
+========================
+O     0.0000     0.0000    -0.1345
+H     0.0000    -1.3587     1.0676
+H     0.0000     1.3587     1.0676
+Number of basis functions                   (NBF)    = 24
+Number of auxiliary basis functions         (NBFAUX) = 116
+Inactive Doubly occupied orbitals up to     (NO1)    = 0
+No. considered Strongly Doubly occupied MOs (NDOC)   = 5
+No. considered Strongly Singly occupied MOs (NSOC)   = 0
+No. of Weakly occ. per St. Doubly occ.  MOs (NCWO)   = 3
+Dimension of the Nat. Orb. subspace         (NBF5)   = 20
+No. of electrons                                     = 10
+Multiplicity                                         = 1
+
+No violations of the orthonormality
+
+PNOF8 Calculation (ADAM/Softmax Optimization)
+==================
+
+Nitext  Nit_orb  Nit_occ      Eelec           Etot          Ediff        Grad_orb   Grad_occ Conv Orb Conv Occ
+     0     49      0     -85.42943607   -76.24181933 -10084.42943607      8.9e-05    1.6e-05   True   True
+Solution does not improve anymore
+
+Lagrage sumdiff 2.6e-04 maxfdiff 9.9e-06
+
+RESULTS OF THE OCCUPATION OPTIMIZATION
+========================================
+ Idx        n        E (Hartree)
+   1    1.9999708  -20.57544579
+   2    1.9888817   -1.26303595
+   3    1.9735481   -0.73365350
+   4    1.9709402   -0.71151986
+   5    1.9774774   -0.53030999
+   6    0.0131175   -0.01739667
+   7    0.0217625   -0.00871973
+   8    0.0252336   -0.00845002
+   9    0.0069809   -0.03108693
+  10    0.0000108   -0.00737427
+  11    0.0049281   -0.00729516
+  12    0.0037012   -0.03376967
+  13    0.0007487   -0.00158915
+  14    0.0033893   -0.00108875
+  15    0.0000101   -0.01312548
+  16    0.0044771   -0.00818970
+  17    0.0035961   -0.00181784
+  18    0.0004696   -0.00022962
+  19    0.0007481   -0.00021444
+  20    0.0000082   -0.00017549
+
+----------------
+ Final Energies 
+----------------
+Final NOF Total Energy =     -76.2418193
+
+
+Elapsed Time:       0.27 (Seconds)
+Number of basis functions                   (NBF)    = 24
+Number of auxiliary basis functions         (NBFAUX) = 116
+Inactive Doubly occupied orbitals up to     (NO1)    = 0
+No. considered Strongly Doubly occupied MOs (NDOC)   = 5
+No. considered Strongly Singly occupied MOs (NSOC)   = 0
+No. of Weakly occ. per St. Doubly occ.  MOs (NCWO)   = 3
+Dimension of the Nat. Orb. subspace         (NBF5)   = 20
+No. of electrons                                     = 10
+Multiplicity                                         = 1
+
+Orthonormality violations 540, Maximum Violation 0.019715
+Trying to orthonormalize
+No violations of the orthonormality
+
+PNOF8 Calculation (ADAM/Softmax Optimization)
+==================
+
+Nitext  Nit_orb  Nit_occ      Eelec           Etot          Ediff        Grad_orb   Grad_occ Conv Orb Conv Occ
+     0     50      2     -85.36365703   -76.24182357 -10084.36365703      1.0e-04    1.2e-05   True   True
+Solution does not improve anymore
+
+Lagrage sumdiff 3.5e-04 maxfdiff 1.6e-05
+
+RESULTS OF THE OCCUPATION OPTIMIZATION
+========================================
+ Idx        n        E (Hartree)
+   1    1.9999708  -20.57658871
+   2    1.9888825   -1.26135791
+   3    1.9731683   -0.72871857
+   4    1.9708173   -0.70982677
+   5    1.9774873   -0.52986389
+   6    0.0131524   -0.01741502
+   7    0.0219416   -0.00868539
+   8    0.0256213   -0.00840248
+   9    0.0069783   -0.03123828
+  10    0.0000108   -0.00731374
+  11    0.0049099   -0.00723982
+  12    0.0036732   -0.03410831
+  13    0.0007460   -0.00158540
+  14    0.0033734   -0.00107781
+  15    0.0000102   -0.01310521
+  16    0.0044505   -0.00815770
+  17    0.0035678   -0.00184759
+  18    0.0004644   -0.00022843
+  19    0.0007657   -0.00021379
+  20    0.0000082   -0.00017522
+
+----------------
+ Final Energies 
+----------------
+Final NOF Total Energy =     -76.2418236
+
+
+Elapsed Time:       0.28 (Seconds)
+Number of basis functions                   (NBF)    = 24
+Number of auxiliary basis functions         (NBFAUX) = 116
+Inactive Doubly occupied orbitals up to     (NO1)    = 0
+No. considered Strongly Doubly occupied MOs (NDOC)   = 5
+No. considered Strongly Singly occupied MOs (NSOC)   = 0
+No. of Weakly occ. per St. Doubly occ.  MOs (NCWO)   = 3
+Dimension of the Nat. Orb. subspace         (NBF5)   = 20
+No. of electrons                                     = 10
+Multiplicity                                         = 1
+
+Orthonormality violations 530, Maximum Violation 0.009093
+Trying to orthonormalize
+No violations of the orthonormality
+
+PNOF8 Calculation (ADAM/Softmax Optimization)
+==================
+
+Nitext  Nit_orb  Nit_occ      Eelec           Etot          Ediff        Grad_orb   Grad_occ Conv Orb Conv Occ
+     0     49      1     -85.39494194   -76.24184931 -10084.39494194      1.0e-04    1.6e-05   True   True
+Solution does not improve anymore
+
+Lagrage sumdiff 3.3e-04 maxfdiff 1.1e-05
+
+RESULTS OF THE OCCUPATION OPTIMIZATION
+========================================
+ Idx        n        E (Hartree)
+   1    1.9999707  -20.57604324
+   2    1.9888897   -1.26242893
+   3    1.9733526   -0.73090084
+   4    1.9708790   -0.71052988
+   5    1.9774815   -0.53007675
+   6    0.0131350   -0.01740589
+   7    0.0218445   -0.00870410
+   8    0.0254366   -0.00842298
+   9    0.0069672   -0.03115818
+  10    0.0000108   -0.00734407
+  11    0.0049248   -0.00727069
+  12    0.0036922   -0.03394741
+  13    0.0007455   -0.00158540
+  14    0.0033810   -0.00108218
+  15    0.0000102   -0.01310518   => Loading Basis Set <=
+
+    Name: (CC-PVDZ AUX)
+    Role: JKFIT
+    Keyword: DF_BASIS_SCF
+    atoms 1   entry O          line   221 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+    atoms 2-3 entry H          line    51 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+
+   => Loading Basis Set <=
+
+    Name: CC-PVDZ
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1   entry O          line   198 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz.gbs 
+    atoms 2-3 entry H          line    22 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz.gbs 
+
+   => Loading Basis Set <=
+
+    Name: (CC-PVDZ AUX)
+    Role: JKFIT
+    Keyword: DF_BASIS_SCF
+    atoms 1   entry O          line   221 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+    atoms 2-3 entry H          line    51 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+
+   => Loading Basis Set <=
+
+    Name: (CC-PVDZ AUX)
+    Role: JKFIT
+    Keyword: DF_BASIS_SCF
+    atoms 1   entry O          line   221 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+    atoms 2-3 entry H          line    51 file /home/ibonfil/anaconda3/envs/pynofdlfind/share/psi4/basis/cc-pvdz-jkfit.gbs 
+
+Maximum memory usage ........................... 4.0469E+00 kB
+
+  16    0.0044588   -0.00817316
+  17    0.0035844   -0.00183864
+  18    0.0004653   -0.00022924
+  19    0.0007622   -0.00021429
+  20    0.0000083   -0.00017554
+
+----------------
+ Final Energies 
+----------------
+Final NOF Total Energy =     -76.2418493
+
+
+Elapsed Time:       0.26 (Seconds)
+Number of basis functions                   (NBF)    = 24
+Number of auxiliary basis functions         (NBFAUX) = 116
+Inactive Doubly occupied orbitals up to     (NO1)    = 0
+No. considered Strongly Doubly occupied MOs (NDOC)   = 5
+No. considered Strongly Singly occupied MOs (NSOC)   = 0
+No. of Weakly occ. per St. Doubly occ.  MOs (NCWO)   = 3
+Dimension of the Nat. Orb. subspace         (NBF5)   = 20
+No. of electrons                                     = 10
+Multiplicity                                         = 1
+
+Orthonormality violations 465, Maximum Violation 0.000183
+Trying to orthonormalize
+No violations of the orthonormality
+
+PNOF8 Calculation (ADAM/Softmax Optimization)
+==================
+
+Nitext  Nit_orb  Nit_occ      Eelec           Etot          Ediff        Grad_orb   Grad_occ Conv Orb Conv Occ
+     0     49      0     -85.39555942   -76.24184951 -10084.39555942      8.6e-05    1.3e-05   True   True
+Solution does not improve anymore
+
+Lagrage sumdiff 2.5e-04 maxfdiff 1.0e-05
+
+RESULTS OF THE OCCUPATION OPTIMIZATION
+========================================
+ Idx        n        E (Hartree)
+   1    1.9999707  -20.57602902
+   2    1.9888897   -1.26238349
+   3    1.9733526   -0.73097858
+   4    1.9708790   -0.71057173
+   5    1.9774815   -0.53007819
+   6    0.0131350   -0.01740586
+   7    0.0218445   -0.00870452
+   8    0.0254366   -0.00842322
+   9    0.0069672   -0.03115788
+  10    0.0000108   -0.00734254
+  11    0.0049248   -0.00727271
+  12    0.0036922   -0.03394625
+  13    0.0007455   -0.00158496
+  14    0.0033810   -0.00108216
+  15    0.0000102   -0.01310548
+  16    0.0044588   -0.00817335
+  17    0.0035844   -0.00183870
+  18    0.0004653   -0.00022932
+  19    0.0007622   -0.00021430
+  20    0.0000083   -0.00017548
+
+----------------
+ Final Energies 
+----------------
+Final NOF Total Energy =     -76.2418495
+
+
+Elapsed Time:       0.23 (Seconds)
+Number of iterations: 4
+Final energy (a.u.): -76.24184950804433
+Final geometry (Ang): [[ 0.          0.001033   -0.07276188]
+ [ 0.         -0.72217907  0.56616681]
+ [ 0.          0.72114607  0.56525287]]

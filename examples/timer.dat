@@ -1,0 +1,1058 @@
+
+Host: malaquita
+
+Timers On : Tue Jan 14 17:08:35 2025
+Timers Off: Tue Jan 14 17:09:40 2025
+
+Wall Time:       64.61 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.014w      5 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.007w      1 calls
+DFH: initialize()                   :      0.017u      0.000s      0.009w      1 calls
+DFH: AO Construction                :      0.000u      0.000s      0.001w      1 calls
+DFH: AO-Met. Contraction            :      0.000u      0.000s      0.001w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.000w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      0.017u      0.017s      0.020w      1 calls
+SAD Guess                           :      0.017u      0.017s      0.019w      1 calls
+HF: Form G                          :      0.017u      0.000s      0.001w      8 calls
+JK: D                               :      0.000u      0.000s      0.000w      8 calls
+JK: USO2AO                          :      0.000u      0.000s      0.000w      8 calls
+JK: JK                              :      0.017u      0.000s      0.001w      8 calls
+DFH: compute_JK()                   :      0.017u      0.000s      0.001w      8 calls
+DFH: Grabbing AOs                   :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_J                      :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_K                      :      0.017u      0.000s      0.001w      8 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.000u      0.000s      0.008w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.001w      7 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.000s      0.004w      2 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.007w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.017s      0.006w      1 calls
+DFH: initialize()                   :      0.017u      0.000s      0.009w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.004w      2 calls
+| DFH: AO Construction              :      0.000u      0.000s      0.001w      1 calls
+| DFH: AO-Met. Contraction          :      0.000u      0.000s      0.001w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.000w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      0.017u      0.017s      0.020w      1 calls
+| SAD Guess                         :      0.017u      0.017s      0.019w      1 calls
+HF: Form G                          :      0.017u      0.000s      0.001w      8 calls
+| JK: D                             :      0.000u      0.000s      0.000w      8 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      8 calls
+| JK: JK                            :      0.017u      0.000s      0.001w      8 calls
+| | DFH: compute_JK()               :      0.017u      0.000s      0.001w      8 calls
+| | | DFH: Grabbing AOs             :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_J                :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_K                :      0.017u      0.000s      0.001w      8 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.000u      0.000s      0.008w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.001w      7 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Jan 14 17:11:07 2025
+Timers Off: Tue Jan 14 17:11:11 2025
+
+Wall Time:        4.39 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.000u      0.033s      0.015w      5 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.007w      1 calls
+DFH: initialize()                   :      0.000u      0.000s      0.009w      1 calls
+DFH: AO Construction                :      0.000u      0.000s      0.001w      1 calls
+DFH: AO-Met. Contraction            :      0.000u      0.000s      0.001w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.000w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      0.033u      0.017s      0.021w      1 calls
+SAD Guess                           :      0.033u      0.017s      0.021w      1 calls
+HF: Form G                          :      0.000u      0.000s      0.001w      8 calls
+JK: D                               :      0.000u      0.000s      0.000w      8 calls
+JK: USO2AO                          :      0.000u      0.000s      0.000w      8 calls
+JK: JK                              :      0.000u      0.000s      0.001w      8 calls
+DFH: compute_JK()                   :      0.000u      0.000s      0.001w      8 calls
+DFH: Grabbing AOs                   :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_J                      :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_K                      :      0.000u      0.000s      0.001w      8 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.017u      0.000s      0.008w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.001w      7 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.005w      2 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.007w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.017s      0.006w      1 calls
+DFH: initialize()                   :      0.000u      0.000s      0.009w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.004w      2 calls
+| DFH: AO Construction              :      0.000u      0.000s      0.001w      1 calls
+| DFH: AO-Met. Contraction          :      0.000u      0.000s      0.001w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.000w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      0.033u      0.017s      0.021w      1 calls
+| SAD Guess                         :      0.033u      0.017s      0.021w      1 calls
+HF: Form G                          :      0.000u      0.000s      0.001w      8 calls
+| JK: D                             :      0.000u      0.000s      0.000w      8 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      8 calls
+| JK: JK                            :      0.000u      0.000s      0.001w      8 calls
+| | DFH: compute_JK()               :      0.000u      0.000s      0.001w      8 calls
+| | | DFH: Grabbing AOs             :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_J                :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_K                :      0.000u      0.000s      0.001w      8 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.017u      0.000s      0.008w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.001w      7 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Jan 14 17:11:18 2025
+Timers Off: Tue Jan 14 17:11:19 2025
+
+Wall Time:        0.54 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.000u      0.000s      0.004w      2 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.000s      0.004w      2 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Jan 14 17:11:42 2025
+Timers Off: Tue Jan 14 17:11:43 2025
+
+Wall Time:        0.54 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.004w      2 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.004w      2 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Jan 14 17:25:23 2025
+Timers Off: Tue Jan 14 17:25:27 2025
+
+Wall Time:        3.89 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.000u      0.033s      0.017w      5 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.007w      1 calls
+DFH: initialize()                   :      0.017u      0.000s      0.008w      1 calls
+DFH: AO Construction                :      0.000u      0.000s      0.001w      1 calls
+DFH: AO-Met. Contraction            :      0.000u      0.000s      0.001w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.000w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      0.017u      0.017s      0.019w      1 calls
+SAD Guess                           :      0.017u      0.017s      0.019w      1 calls
+HF: Form G                          :      0.000u      0.000s      0.001w      8 calls
+JK: D                               :      0.000u      0.000s      0.000w      8 calls
+JK: USO2AO                          :      0.000u      0.000s      0.000w      8 calls
+JK: JK                              :      0.000u      0.000s      0.001w      8 calls
+DFH: compute_JK()                   :      0.000u      0.000s      0.001w      8 calls
+DFH: Grabbing AOs                   :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_J                      :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_K                      :      0.000u      0.000s      0.001w      8 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.000u      0.000s      0.007w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.001w      7 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.008w      2 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.007w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.017s      0.006w      1 calls
+DFH: initialize()                   :      0.017u      0.000s      0.008w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.003w      2 calls
+| DFH: AO Construction              :      0.000u      0.000s      0.001w      1 calls
+| DFH: AO-Met. Contraction          :      0.000u      0.000s      0.001w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.000w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      0.017u      0.017s      0.019w      1 calls
+| SAD Guess                         :      0.017u      0.017s      0.019w      1 calls
+HF: Form G                          :      0.000u      0.000s      0.001w      8 calls
+| JK: D                             :      0.000u      0.000s      0.000w      8 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      8 calls
+| JK: JK                            :      0.000u      0.000s      0.001w      8 calls
+| | DFH: compute_JK()               :      0.000u      0.000s      0.001w      8 calls
+| | | DFH: Grabbing AOs             :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_J                :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_K                :      0.000u      0.000s      0.001w      8 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.000u      0.000s      0.007w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.001w      7 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Sep  9 17:47:48 2025
+Timers Off: Tue Sep  9 17:49:18 2025
+
+Wall Time:       89.63 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :     13.317u      0.033s      0.399w    572 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :     13.317u      0.033s      0.399w    572 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Fri Sep 12 18:55:34 2025
+Timers Off: Fri Sep 12 18:57:01 2025
+
+Wall Time:       87.03 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :     13.983u      0.033s      0.413w    572 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :     13.983u      0.033s      0.413w    572 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Fri Sep 12 18:58:56 2025
+Timers Off: Fri Sep 12 18:59:43 2025
+
+Wall Time:       47.40 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :     13.183u      0.017s      0.384w    572 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :     13.183u      0.017s      0.384w    572 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Fri Sep 12 19:48:03 2025
+Timers Off: Fri Sep 12 19:53:15 2025
+
+Wall Time:      312.71 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :     10.433u      0.100s      0.494w    708 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :     10.433u      0.100s      0.494w    708 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Sep 17 15:21:20 2025
+Timers Off: Wed Sep 17 15:22:42 2025
+
+Wall Time:       81.82 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.133u      0.000s      0.016w     12 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.133u      0.000s      0.016w     12 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Sep 17 15:25:11 2025
+Timers Off: Wed Sep 17 15:26:50 2025
+
+Wall Time:       98.85 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.000u      0.033s      0.019w      5 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.008w      1 calls
+DFH: initialize()                   :      0.017u      0.000s      0.010w      1 calls
+DFH: AO Construction                :      0.000u      0.000s      0.002w      1 calls
+DFH: AO-Met. Contraction            :      0.000u      0.000s      0.001w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.000w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      0.017u      0.017s      0.024w      1 calls
+SAD Guess                           :      0.017u      0.017s      0.023w      1 calls
+HF: Form G                          :      0.000u      0.000s      0.002w      8 calls
+JK: D                               :      0.000u      0.000s      0.000w      8 calls
+JK: USO2AO                          :      0.000u      0.000s      0.000w      8 calls
+JK: JK                              :      0.000u      0.000s      0.001w      8 calls
+DFH: compute_JK()                   :      0.000u      0.000s      0.001w      8 calls
+DFH: Grabbing AOs                   :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_J                      :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_K                      :      0.000u      0.000s      0.001w      8 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.033u      0.000s      0.010w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.001w      7 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.008w      2 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.008w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.017s      0.007w      1 calls
+DFH: initialize()                   :      0.017u      0.000s      0.010w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.004w      2 calls
+| DFH: AO Construction              :      0.000u      0.000s      0.002w      1 calls
+| DFH: AO-Met. Contraction          :      0.000u      0.000s      0.001w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.000w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      0.017u      0.017s      0.024w      1 calls
+| SAD Guess                         :      0.017u      0.017s      0.023w      1 calls
+HF: Form G                          :      0.000u      0.000s      0.002w      8 calls
+| JK: D                             :      0.000u      0.000s      0.000w      8 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      8 calls
+| JK: JK                            :      0.000u      0.000s      0.001w      8 calls
+| | DFH: compute_JK()               :      0.000u      0.000s      0.001w      8 calls
+| | | DFH: Grabbing AOs             :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_J                :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_K                :      0.000u      0.000s      0.001w      8 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.033u      0.000s      0.010w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.001w      7 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Sep 17 15:27:04 2025
+Timers Off: Wed Sep 17 15:28:43 2025
+
+Wall Time:       98.42 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :     12.117u      0.100s      0.586w    622 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :     12.117u      0.100s      0.586w    622 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Sep 23 10:14:47 2025
+Timers Off: Tue Sep 23 10:14:51 2025
+
+Wall Time:        4.67 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.004w      2 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.004w      2 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Sep 23 10:15:00 2025
+Timers Off: Tue Sep 23 10:21:51 2025
+
+Wall Time:      410.48 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :     84.250u      4.000s      2.401w   2962 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :     84.250u      4.000s      2.401w   2962 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Sep 23 10:25:26 2025
+Timers Off: Tue Sep 23 10:50:40 2025
+
+Wall Time:     1513.55 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :    463.400u     18.383s     13.116w  18002 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :    463.400u     18.383s     13.116w  18002 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Sep 23 10:53:10 2025
+Timers Off: Tue Sep 23 10:54:38 2025
+
+Wall Time:       88.67 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :     17.117u      0.817s      0.480w    652 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :     17.117u      0.817s      0.480w    652 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Sep 23 11:08:43 2025
+Timers Off: Tue Sep 23 11:09:17 2025
+
+Wall Time:       34.39 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.000u      0.000s      0.005w      2 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.000s      0.005w      2 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Sep 23 11:15:40 2025
+Timers Off: Tue Sep 23 11:17:08 2025
+
+Wall Time:       88.25 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :     16.317u      0.683s      0.467w    652 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :     16.317u      0.683s      0.467w    652 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Sep 23 11:19:41 2025
+Timers Off: Tue Sep 23 11:21:13 2025
+
+Wall Time:       91.25 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :     18.233u      1.033s      0.519w    682 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :     18.233u      1.033s      0.519w    682 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Mon Oct  6 16:02:57 2025
+Timers Off: Mon Oct  6 16:04:59 2025
+
+Wall Time:      121.48 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :     14.767u      0.067s      0.615w    682 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :     14.767u      0.067s      0.615w    682 calls
+
+**************************************************************************************
+
+Host: obsidiana
+
+Timers On : Mon Oct 13 18:27:08 2025
+Timers Off: Mon Oct 13 18:27:35 2025
+
+Wall Time:       27.02 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.550u      0.050s      0.024w     19 calls
+DFH: sparsity prep                  :      0.133u      0.017s      0.006w      1 calls
+DFH: initialize()                   :      0.333u      0.317s      0.026w      1 calls
+DFH: AO Construction                :      0.017u      0.000s      0.001w      1 calls
+DFH: AO-Met. Contraction            :      0.017u      0.000s      0.000w      1 calls
+HF: Form core H                     :      0.067u      0.000s      0.003w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      1.333u      0.083s      0.057w      1 calls
+SAD Guess                           :      1.317u      0.083s      0.056w      1 calls
+HF: Form G                          :      0.033u      0.000s      0.001w      8 calls
+JK: D                               :      0.000u      0.000s      0.000w      8 calls
+JK: USO2AO                          :      0.000u      0.000s      0.000w      8 calls
+JK: JK                              :      0.033u      0.000s      0.001w      8 calls
+DFH: compute_JK()                   :      0.033u      0.000s      0.001w      8 calls
+DFH: Grabbing AOs                   :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_J                      :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_K                      :      0.000u      0.000s      0.000w      8 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.433u      0.033s      0.020w      7 calls
+HF: Form C                          :      0.067u      0.000s      0.002w      7 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.383u      0.017s      0.017w      2 calls
+DFH: sparsity prep                  :      0.133u      0.017s      0.006w      1 calls
+| Libint2ERI::Libint2ERI            :      0.100u      0.017s      0.004w      1 calls
+DFH: initialize()                   :      0.333u      0.317s      0.026w      1 calls
+| Libint2ERI::Libint2ERI            :      0.067u      0.017s      0.003w     16 calls
+| DFH: AO Construction              :      0.017u      0.000s      0.001w      1 calls
+| DFH: AO-Met. Contraction          :      0.017u      0.000s      0.000w      1 calls
+HF: Form core H                     :      0.067u      0.000s      0.003w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      1.333u      0.083s      0.057w      1 calls
+| SAD Guess                         :      1.317u      0.083s      0.056w      1 calls
+HF: Form G                          :      0.033u      0.000s      0.001w      8 calls
+| JK: D                             :      0.000u      0.000s      0.000w      8 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      8 calls
+| JK: JK                            :      0.033u      0.000s      0.001w      8 calls
+| | DFH: compute_JK()               :      0.033u      0.000s      0.001w      8 calls
+| | | DFH: Grabbing AOs             :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_J                :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_K                :      0.000u      0.000s      0.000w      8 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.433u      0.033s      0.020w      7 calls
+HF: Form C                          :      0.067u      0.000s      0.002w      7 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 19:51:13 2025
+Timers Off: Wed Oct 15 19:51:13 2025
+
+Wall Time:        0.58 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 19:53:23 2025
+Timers Off: Wed Oct 15 19:53:24 2025
+
+Wall Time:        0.56 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 19:54:18 2025
+Timers Off: Wed Oct 15 19:54:19 2025
+
+Wall Time:        0.60 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 19:54:33 2025
+Timers Off: Wed Oct 15 19:55:02 2025
+
+Wall Time:       29.67 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.000u      0.000s      0.005w      2 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.000s      0.005w      2 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 19:57:52 2025
+Timers Off: Wed Oct 15 19:58:21 2025
+
+Wall Time:       29.19 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.000u      0.000s      0.005w      2 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.000s      0.005w      2 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 20:07:29 2025
+Timers Off: Wed Oct 15 20:07:58 2025
+
+Wall Time:       29.52 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.005w      2 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.005w      2 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 20:14:16 2025
+Timers Off: Wed Oct 15 20:14:47 2025
+
+Wall Time:       30.36 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.200u      0.017s      0.016w     12 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.200u      0.017s      0.016w     12 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 20:27:32 2025
+Timers Off: Wed Oct 15 20:28:05 2025
+
+Wall Time:       33.06 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      1.967u      0.017s      0.063w     82 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      1.967u      0.017s      0.063w     82 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 20:41:34 2025
+Timers Off: Wed Oct 15 20:41:38 2025
+
+Wall Time:        4.40 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      2.233u      0.017s      0.069w     82 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      2.233u      0.017s      0.069w     82 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 20:44:08 2025
+Timers Off: Wed Oct 15 20:44:08 2025
+
+Wall Time:        0.58 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 20:44:51 2025
+Timers Off: Wed Oct 15 20:44:55 2025
+
+Wall Time:        4.35 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.033u      0.000s      0.003w    114 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.033u      0.000s      0.003w    114 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Wed Oct 15 20:46:19 2025
+Timers Off: Wed Oct 15 20:46:58 2025
+
+Wall Time:       39.26 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :     34.750u      0.450s      0.967w    856 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :     34.750u      0.450s      0.967w    856 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Oct 21 11:29:40 2025
+Timers Off: Tue Oct 21 11:29:41 2025
+
+Wall Time:        0.61 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Oct 21 11:30:29 2025
+Timers Off: Tue Oct 21 11:31:02 2025
+
+Wall Time:       32.58 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      1.633u      0.017s      0.050w     62 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      1.633u      0.017s      0.050w     62 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Oct 21 11:31:46 2025
+Timers Off: Tue Oct 21 11:31:53 2025
+
+Wall Time:        6.63 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      1.117u      0.000s      0.039w     42 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      1.117u      0.000s      0.039w     42 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Oct 21 11:32:21 2025
+Timers Off: Tue Oct 21 11:32:28 2025
+
+Wall Time:        6.71 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      1.467u      0.000s      0.047w     52 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      1.467u      0.000s      0.047w     52 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Oct 21 11:38:13 2025
+Timers Off: Tue Oct 21 11:38:14 2025
+
+Wall Time:        0.58 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Oct 21 11:39:07 2025
+Timers Off: Tue Oct 21 11:39:39 2025
+
+Wall Time:       31.86 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      1.617u      0.017s      0.049w     52 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      1.617u      0.017s      0.049w     52 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Oct 21 12:03:21 2025
+Timers Off: Tue Oct 21 12:03:25 2025
+
+Wall Time:        4.06 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      1.283u      0.050s      0.038w     42 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      1.283u      0.050s      0.038w     42 calls
+
+**************************************************************************************
+
+Host: adamantio
+
+Timers On : Thu Oct 23 15:03:00 2025
+Timers Off: Thu Oct 23 15:03:04 2025
+
+Wall Time:        4.03 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: adamantio
+
+Timers On : Thu Oct 23 15:03:20 2025
+Timers Off: Thu Oct 23 15:03:21 2025
+
+Wall Time:        1.17 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: adamantio
+
+Timers On : Thu Oct 23 15:08:31 2025
+Timers Off: Thu Oct 23 15:09:56 2025
+
+Wall Time:       85.50 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.250u      0.033s      0.133w     52 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.250u      0.033s      0.133w     52 calls
+
+**************************************************************************************
+
+Host: Obsidiana
+
+Timers On : Mon Oct 27 16:58:51 2025
+Timers Off: Mon Oct 27 16:59:01 2025
+
+Wall Time:       10.45 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.117u      0.017s      0.013w      5 calls
+DFH: sparsity prep                  :      0.117u      0.017s      0.007w      1 calls
+DFH: initialize()                   :      0.000u      0.000s      0.007w      1 calls
+DFH: AO Construction                :      0.000u      0.000s      0.001w      1 calls
+DFH: AO-Met. Contraction            :      0.000u      0.000s      0.001w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.000w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      0.000u      0.017s      0.019w      1 calls
+SAD Guess                           :      0.000u      0.017s      0.019w      1 calls
+HF: Form G                          :      0.000u      0.000s      0.001w      8 calls
+JK: D                               :      0.000u      0.000s      0.000w      8 calls
+JK: USO2AO                          :      0.000u      0.000s      0.000w      8 calls
+JK: JK                              :      0.000u      0.000s      0.001w      8 calls
+DFH: compute_JK()                   :      0.000u      0.000s      0.001w      8 calls
+DFH: Grabbing AOs                   :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_J                      :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_K                      :      0.000u      0.000s      0.001w      8 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.017u      0.000s      0.007w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.001w      7 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.000u      0.000s      0.004w      2 calls
+DFH: sparsity prep                  :      0.117u      0.017s      0.007w      1 calls
+| Libint2ERI::Libint2ERI            :      0.117u      0.017s      0.006w      1 calls
+DFH: initialize()                   :      0.000u      0.000s      0.007w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.003w      2 calls
+| DFH: AO Construction              :      0.000u      0.000s      0.001w      1 calls
+| DFH: AO-Met. Contraction          :      0.000u      0.000s      0.001w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.000w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.000w      1 calls
+HF: Guess                           :      0.000u      0.017s      0.019w      1 calls
+| SAD Guess                         :      0.000u      0.017s      0.019w      1 calls
+HF: Form G                          :      0.000u      0.000s      0.001w      8 calls
+| JK: D                             :      0.000u      0.000s      0.000w      8 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      8 calls
+| JK: JK                            :      0.000u      0.000s      0.001w      8 calls
+| | DFH: compute_JK()               :      0.000u      0.000s      0.001w      8 calls
+| | | DFH: Grabbing AOs             :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_J                :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_K                :      0.000u      0.000s      0.001w      8 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.017u      0.000s      0.007w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.001w      7 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Oct 28 09:11:15 2025
+Timers Off: Tue Oct 28 09:11:16 2025
+
+Wall Time:        1.07 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.017u      0.000s      0.035w      2 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.017u      0.000s      0.035w      2 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Tue Oct 28 09:11:46 2025
+Timers Off: Tue Oct 28 09:14:17 2025
+
+Wall Time:      151.11 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.500u      0.017s      0.024w     12 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.500u      0.017s      0.024w     12 calls
+
+**************************************************************************************
+
+Host: Obsidiana
+
+Timers On : Thu Nov  6 18:42:47 2025
+Timers Off: Thu Nov  6 18:42:48 2025
+
+Wall Time:        0.63 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: Obsidiana
+
+Timers On : Thu Nov  6 18:44:20 2025
+Timers Off: Thu Nov  6 18:48:51 2025
+
+Wall Time:      270.68 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.650u      0.050s      0.481w    866 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.650u      0.050s      0.481w    866 calls
+
+**************************************************************************************
+
+Host: Obsidiana
+
+Timers On : Thu Nov  6 18:49:32 2025
+Timers Off: Thu Nov  6 18:49:37 2025
+
+Wall Time:        4.63 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+Libint2ERI::Libint2ERI              :      0.067u      0.067s      0.058w     62 calls
+
+--------------------------------------------------------------------------------------
+Libint2ERI::Libint2ERI              :      0.067u      0.067s      0.058w     62 calls
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Fri Jan 30 14:34:44 2026
+Timers Off: Fri Jan 30 14:34:44 2026
+
+Wall Time:        0.55 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: malaquita
+
+Timers On : Fri Jan 30 14:35:18 2026
+Timers Off: Fri Jan 30 14:35:19 2026
+
+Wall Time:        0.53 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
