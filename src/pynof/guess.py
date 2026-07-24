@@ -1,7 +1,7 @@
 import pynof
 import numpy as np
 
-def read_C(p,title = "pynof"):
+def read_C(title = "pynof"):
     C = np.load(title+"_C.npy")
 
     return C

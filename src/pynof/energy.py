@@ -28,6 +28,16 @@ def compute_energy(mol,p=None,C=None,n=None,fmiug0=None,guess="HF",nofmp2=False,
     # Nuclear Energy
     E_nuc = mol.nuclear_repulsion_energy()
 
+    # Selection of reference
+    if p.mul>1:
+        psi4.set_options({
+            'reference': 'uhf'
+            })
+    elif p.mul==2:
+        psi4.set_options({
+            'reference': 'rohf'
+            })
+
     # Guess de MO (C)
     if(C is None):
         if guess=="Core" or guess==None:
@@ -142,6 +152,9 @@ def compute_energy(mol,p=None,C=None,n=None,fmiug0=None,guess="HF",nofmp2=False,
 
     if(p.orb_method=="ID"):
         np.save(p.title+"_fmiug0.npy",fmiug0)
+    if(p.orb_method=="ADAM"):
+        np.save(p.title+"_fmiug0.npy",fmiug0)
+
     
     n,dR = pynof.ocupacion(gamma,p.no1,p.ndoc,p.nalpha,p.nv,p.nbf5,p.ndns,p.ncwo,p.HighSpin,p.occ_method)
     cj12,ck12 = pynof.PNOFi_selector(n,p)
@@ -227,16 +240,39 @@ def compute_energy(mol,p=None,C=None,n=None,fmiug0=None,guess="HF",nofmp2=False,
 
 
     if gradients:
+        C_old = np.copy(C)
+        for i in range(p.ndoc):
+            for j in range(p.ncwo):
+                k = p.no1 + p.ndns + (p.ndoc - i - 1) * p.ncwo + j
+                l = p.no1 + p.ndns + (p.ndoc - i - 1) + j*p.ndoc
+                C[:,k] = C_old[:,l]
+        n_old = np.copy(n)
+        for i in range(p.ndoc):
+            for j in range(p.ncwo):
+                k = p.no1 + p.ndns + (p.ndoc - i - 1) * p.ncwo + j
+                l = p.no1 + p.ndns + (p.ndoc - i - 1) + j*p.ndoc
+                n[k] = n_old[l]
+
         grad = pynof.compute_geom_gradients(wfn,mol,n,C,cj12,ck12,elag,p)
+
+        C_old = np.copy(C)
+        n_old = np.copy(n)
+        for i in range(p.ndoc):
+            for j in range(p.ncwo):
+                k = p.no1 + p.ndns + (p.ndoc - i - 1) * p.ncwo + j
+                l = p.no1 + p.ndns + (p.ndoc - i - 1) + j*p.ndoc
+                C[:,l] = C_old[:,k]
+                n[l] = n_old[k]
+
         return E_t,C,n,fmiug0,grad.flatten()
     else:
         return E_t,C,n,fmiug0
 
 
-def brute_force_energy(mol,p,intents=5,C=None,gamma=None,fmiug0=None,hfidr=True,RI_last=False,gpu_last=False,ekt=False,mulliken_pop=False,lowdin_pop=False,m_diagnostic=False):
+def brute_force_energy(mol,p,intents=5,C=None,gamma=None,fmiug0=None,RI_last=False,gpu_last=False,ekt=False,mulliken_pop=False,lowdin_pop=False,m_diagnostic=False,guess=None):
     t1 = time()
     
-    E,C,gamma,fmiug0 = pynof.compute_energy(mol,p,C,gamma,fmiug0,hfidr)
+    E,C,gamma,fmiug0 = pynof.compute_energy(mol,p,C,gamma,fmiug0,guess='HF')
     E_min = E
     C_min = C
     gamma_min = gamma
@@ -244,7 +280,7 @@ def brute_force_energy(mol,p,intents=5,C=None,gamma=None,fmiug0=None,hfidr=True,
     
     for i in range(intents):
         p.autozeros()
-        E,C,gamma,fmiug0 = pynof.compute_energy(mol,p,C,gamma,None,hfidr=False,nofmp2=False)
+        E,C,gamma,fmiug0 = pynof.compute_energy(mol,p,C,gamma,None,nofmp2=False,perturb=True,guess=guess)
         if(E<E_min):
             E_min = E
             C_min = C
@@ -254,7 +290,7 @@ def brute_force_energy(mol,p,intents=5,C=None,gamma=None,fmiug0=None,hfidr=True,
     p.RI = RI_last
     p.gpu = gpu_last
     p.jit = True
-    E,C,gamma,fmiug0 = pynof.compute_energy(mol,p,C_min,gamma_min,fmiug0_min,hfidr=False,nofmp2=False,ekt=ekt,mulliken_pop=mulliken_pop,lowdin_pop=lowdin_pop,m_diagnostic=m_diagnostic)
+    E,C,gamma,fmiug0 = pynof.compute_energy(mol,p,C_min,gamma_min,fmiug0_min,nofmp2=False,ekt=ekt,mulliken_pop=mulliken_pop,lowdin_pop=lowdin_pop,m_diagnostic=m_diagnostic,guess=guess)
     
     t2 = time()
     
@@ -262,4 +298,5 @@ def brute_force_energy(mol,p,intents=5,C=None,gamma=None,fmiug0=None,hfidr=True,
     print("Elapsed Time: {:10.2f} (Seconds)".format(t2-t1))
    
     return E,C,gamma,fmiug0
-    
+   
+
