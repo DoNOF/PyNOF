@@ -1,3 +1,0 @@
-2025-10-13:18:27:09,998 INFO     [psi4.driver.task_planner:285] PLANNING Atomic:  keywords={'function_kwargs': {}}
-2025-10-13:18:27:10,1 INFO     [psi4.driver.driver:523] Compute energy(): method=hf, basis=cc-pvdz, molecule=default, nre=9.354610703444012
-2025-10-13:18:27:10,237 INFO     [psi4.driver.driver:526] Return energy(): -76.02694764134617

@@ -30,13 +30,7 @@ def compute_energy(mol,p=None,C=None,n=None,fmiug0=None,guess="HF",nofmp2=False,
 
     # Selection of reference
     if p.mul>1:
-        psi4.set_options({
-            'reference': 'uhf'
-            })
-    elif p.mul==2:
-        psi4.set_options({
-            'reference': 'rohf'
-            })
+        psi4.set_options({'reference': 'rohf'})
 
     # Guess de MO (C)
     if(C is None):

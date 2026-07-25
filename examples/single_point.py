@@ -9,8 +9,9 @@ mol = pynof.molecule("""
 
 p = pynof.param(mol,"cc-pvdz")
 
-p.ipnof = 8
+p.ipnof=8
 
 p.RI = True
+p.gpu = True
 
-E,C,n,fmiug0 = pynof.compute_energy(mol,p)
+E,C,gamma,fmiug0 = pynof.compute_energy(mol,p)

@@ -15,7 +15,7 @@ p.ipnof = 8
 
 p.RI = True
 p.gpu = True
-p.title = 'ch4'
+p.title = 'pynof'
 #C,n=pynof.read_C(p.title),pynof.read_n(p.title)
 
-pynof.dlfind_opt_geo(mol,p,)
+pynof.dlfind_opt_geo(mol,p)
