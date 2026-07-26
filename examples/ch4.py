@@ -18,4 +18,4 @@ p.gpu = True
 p.title = 'pynof'
 #C,n=pynof.read_C(p.title),pynof.read_n(p.title)
 
-pynof.dlfind_opt_geo(mol,p)
+pynof.dlfind_opt_geo(mol,p,spec=[1,1,1,1,1,1,1,1,1,1])

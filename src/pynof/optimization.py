@@ -176,13 +176,14 @@ def dlfind_opt_geo(mol,p,C=None,n=None,fmiug0=None,spec=[1,1,1,1,1,1],ncons=0,nc
     traj_coordinates = []
     #traj_gradients = []
 
-    dlf_get_params = make_dlf_get_params(coords=coord,
-                                         icoord=3,    # internal coordiantes
-                                         ncons=ncons, # number of constraints
-                                         spec=spec,   # array for constraints
-                                         nconn=nconn,
-                                         printl=6     # level of detail in prints of dlfind
-                                         )
+    dlf_get_params = make_dlf_get_params(coords=coord)
+#    dlf_get_params = make_dlf_get_params(coords=coord,
+#                                         icoord=3,    # internal coordiantes
+#                                         ncons=ncons, # number of constraints
+#                                         spec=spec,   # array for constraints
+#                                         nconn=nconn,
+#                                         printl=6     # level of detail in prints of dlfind
+#                                         )
 
     e_g_func_ho = functools.partial(
             e_g_func,
