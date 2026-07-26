@@ -14,6 +14,4 @@ p.ipnof = 8
 p.RI = True
 p.gpu = True
 
-pynof.dlfind_opt_geo(mol,p,ncons=1,spec=[1,1,1,
-                                         2,2,1,3,0,
-                                         1,1,1])
+pynof.optgeo(mol,p)

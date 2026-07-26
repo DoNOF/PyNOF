@@ -15,7 +15,7 @@ def optgeo(mol,p,C=None,n=None,fmiug0=None):
     wfn = p.wfn
     coord, mass, symbols, Z, key = wfn.molecule().to_arrays()
     if(C is None or n is None or fmiug0 is None):
-        E_t = pynof.compute_energy(mol,p,C,n,fmiug0,guess='HFIDr',printmode=True)
+        E_t = pynof.compute_energy(mol,p,C,n,fmiug0,guess='HF',printmode=True)
     
     print("Initial Geometry (Bohrs)")
     print("========================")
@@ -40,7 +40,6 @@ def optgeo(mol,p,C=None,n=None,fmiug0=None):
         print("\n\n================¡Not Converged! :( ================\n\n")
 
     E,grad = energy_optgeo(coord,symbols,p,printmode=True)
-    #E = energy_optgeo(coord,symbols,p,printmode=True)
 
     coord = np.reshape(coord,(int(len(coord)/3),3))
 
@@ -67,7 +66,7 @@ def energy_optgeo(coord,symbols,p,printmode=False):
     mol_string = "{} {} \n".format(p.charge,p.mul)
     for symbol,xyz in zip(symbols,coord):
         mol_string += "{:s} {} {} {}\n".format(symbol,xyz[0],xyz[1],xyz[2])
-    mol_string += "units bohr"
+    mol_string += "units bohr\nnoreorient"
     mol = psi4.geometry(mol_string)
     
     # Paramdetros del sistema
@@ -152,7 +151,7 @@ def store_results(switch, energy, coordinates, iam,
     traj_energies.append(energy)
     return
 
-def dlfind_opt_geo(mol,p,C=None,n=None,fmiug0=None,dlf_get_params=None): 
+def optgeo_dlfind(mol,p,C=None,n=None,fmiug0=None,dlf_get_params=None): 
     wfn = p.wfn
     coord, mass, symbols, Z, key = wfn.molecule().to_arrays()
     if(C is None or n is None or fmiug0 is None):
