@@ -1,3 +1,6 @@
 */*.pyc
 */*.npy
 */*.fchk
+*/*.dat
+*/*.whl
+*/*.tar.gz

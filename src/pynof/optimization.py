@@ -142,23 +142,17 @@ def e_g_func(coordinates, iimage, kiter, calculator,p,symbols,C,n):
 
     energy, gradient = calculator(coordinates,symbols,p,C,n)
 
-    #last_grad["g"] = np.array(gradient, copy=True)
-
     return energy, gradient
 
 # Function to store the results from DL-FIND
 @dlf_put_coords_wrapper
 def store_results(switch, energy, coordinates, iam,
-                  traj_coords, traj_energies,): #traj_gradients):
-    if switch == 1:  # Solo guardar puntos "reales"
-        traj_coords.append(np.array(coordinates))
-        traj_energies.append(energy)
-        #g = last_grad["g"]
-        #traj_gradients.append(np.array(g) if g is not None else None)
+                  traj_coords, traj_energies):
+    traj_coords.append(np.array(coordinates))
+    traj_energies.append(energy)
     return
 
-def dlfind_opt_geo(mol,p,C=None,n=None,fmiug0=None,spec=[1,1,1,1,1,1],ncons=0,nconn=0): 
-    #last_grad={}
+def dlfind_opt_geo(mol,p,C=None,n=None,fmiug0=None,dlf_get_params=None): 
     wfn = p.wfn
     coord, mass, symbols, Z, key = wfn.molecule().to_arrays()
     if(C is None or n is None or fmiug0 is None):
@@ -174,9 +168,9 @@ def dlfind_opt_geo(mol,p,C=None,n=None,fmiug0=None,spec=[1,1,1,1,1,1],ncons=0,nc
     # List for storing the results
     traj_energies = []
     traj_coordinates = []
-    #traj_gradients = []
 
-    dlf_get_params = make_dlf_get_params(coords=coord)
+    if dlf_get_params == None:
+        dlf_get_params = make_dlf_get_params(coords=coord)
 #    dlf_get_params = make_dlf_get_params(coords=coord,
 #                                         icoord=3,    # internal coordiantes
 #                                         ncons=ncons, # number of constraints
@@ -199,12 +193,10 @@ def dlfind_opt_geo(mol,p,C=None,n=None,fmiug0=None,spec=[1,1,1,1,1,1],ncons=0,nc
         store_results,
         traj_coords=traj_coordinates,
         traj_energies=traj_energies,
-        #traj_gradients=traj_gradients,
     )
 
     dl_find(
         nvarin=3*p.natoms,
-        nspec=p.natoms+5*ncons+2*nconn+p.natoms,
         dlf_get_gradient=dlf_get_gradient,
         dlf_get_params=dlf_get_params,
         dlf_put_coords=dlf_put_coords,
