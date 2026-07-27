@@ -4,3 +4,4 @@
 */*.dat
 */*.whl
 */*.tar.gz
+*/*.clean
