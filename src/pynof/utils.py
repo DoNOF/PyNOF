@@ -614,8 +614,8 @@ def n_to_gammas_trigonometric(n, no1, ndoc, ndns, ncwo):
         gamma[i] = np.arccos(np.sqrt(2.0 * n[idx] - 1.0))
         prefactor = max(1 - n[idx], 1e-14)
         for j in range(ncwo - 1):
-            jg = ndoc + (ndoc - i - 1) +  j * ncwo
-            ig = no1 + ndns + (ndoc - i - 1) + j * ncwo
+            jg = ndoc + (ndoc - i - 1) +  j * ndoc
+            ig = no1 + ndns + (ndoc - i - 1) + j * ndoc
             gamma[jg] = np.arcsin(np.sqrt(n[ig] / prefactor))
             prefactor = prefactor * (np.cos(gamma[jg])) ** 2
     return gamma
@@ -646,7 +646,7 @@ def n_to_gammas_softmax(n, no1, ndoc, ndns, ncwo):
 
         x = np.log(np.linalg.solve(A, b))
 
-        gamma[llg:ulg] = x
+        gamma[llg:ulg:ndoc] = x
 
     return gamma
 
