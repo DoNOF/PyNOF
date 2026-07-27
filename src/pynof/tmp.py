@@ -55,11 +55,7 @@ def _print_geometry_summary(symbols, coords, title):
     print("Final Geometry (Angstroms)")
     print("======================")
     for symbol, xyz in zip(symbols, coords):
-        print(
-            "{:s} {:10.4f} {:10.4f} {:10.4f}".format(
-                symbol, xyz[0] * 0.529177, xyz[1] * 0.529177, xyz[2] * 0.529177
-            )
-        )
+        print("{:s} {:10.4f} {:10.4f} {:10.4f}".format(symbol, xyz[0] * 0.529177, xyz[1] * 0.529177, xyz[2] * 0.529177))
 
 
 def optgeo(mol, p, C=None, n=None, fmiug0=None, method="CG", **minimize_kwargs):
@@ -116,9 +112,7 @@ def energy_optgeo(coord, symbols, p, printmode=False):
     p.autozeros(restart=True)
 
     t1 = time()
-    E_t, C, n, fmiug0, grad = pynof.compute_energy(
-        mol, p, C, n, fmiug0, gradients=True, printmode=printmode
-    )
+    E_t, C, n, fmiug0, grad = pynof.compute_energy(mol, p, C, n, fmiug0, gradients=True, printmode=printmode)
     t2 = time()
     print("                       Total Energy:", E_t)
 
@@ -151,7 +145,11 @@ def calc_geo_energy(coords, symbols, p, C, n):
 
     print("====Gradient====")
     for i in range(p.natoms):
-        print("Atom {:2d} {:10.4f} {:10.4f} {:10.4f}".format(i, gradient[i * 3 + 0], gradient[i * 3 + 1], gradient[i * 3 + 2]))
+        print(
+            "Atom {:2d} {:10.4f} {:10.4f} {:10.4f}".format(
+                i, gradient[i * 3 + 0], gradient[i * 3 + 1], gradient[i * 3 + 2]
+            )
+        )
     print("\n===Norm of the gradient===")
     print(norm(gradient))
 
