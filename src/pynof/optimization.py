@@ -210,7 +210,7 @@ def optgeo_dlfind(mol,p,C=None,n=None,fmiug0=None,dlf_get_params=None):
         print("{:s} {:10.4f} {:10.4f} {:10.4f}".format(symbol,xyz[0],xyz[1],xyz[2]))
     print("Final Geometry (Angstroms)")
     print("======================")
-    for symbol,xyz in zip(symbols,coord):
+    for symbol,xyz in zip(symbols,final_geometry):
         print("{:s} {:10.4f} {:10.4f} {:10.4f}".format(symbol,xyz[0]*0.529177,xyz[1]*0.529177,xyz[2]*0.529177)) 
 
     return coord
