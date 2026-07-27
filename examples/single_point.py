@@ -14,6 +14,9 @@ p = pynof.param(mol, "cc-pvdz")
 p.ipnof = 8
 
 p.RI = True
-p.gpu = True
+p.gpu = False
+
+p.occ_method="Trigonometric"
+#p.occ_method="Softmax"
 
 E, C, gamma, fmiug0 = pynof.compute_energy(mol, p)

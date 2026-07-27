@@ -64,12 +64,6 @@ def compute_energy(
             C = wfn_HF.Ca().np
     else:
         guess = None
-        C_old = np.copy(C)
-        for i in range(p.ndoc):
-            for j in range(p.ncwo):
-                k = p.no1 + p.ndns + (p.ndoc - i - 1) * p.ncwo + j
-                l = p.no1 + p.ndns + (p.ndoc - i - 1) + j * p.ndoc
-                C[:, k] = C_old[:, l]
     C = pynof.check_ortho(C, S, p)
 
     # Guess Occupation Numbers (n)
@@ -85,12 +79,6 @@ def compute_energy(
             p.nv = p.nbf
             gamma = pynof.compute_gammas_ebi(p.ndoc, p.nbf)
     else:
-        n_old = np.copy(n)
-        for i in range(p.ndoc):
-            for j in range(p.ncwo):
-                k = p.no1 + p.ndns + (p.ndoc - i - 1) * p.ncwo + j
-                l = p.no1 + p.ndns + (p.ndoc - i - 1) + j * p.ndoc
-                n[k] = n_old[l]
         if p.occ_method == "Trigonometric":
             gamma = pynof.n_to_gammas_trigonometric(n, p.no1, p.ndoc, p.ndns, p.ncwo)
         if p.occ_method == "Softmax":
@@ -195,15 +183,6 @@ def compute_energy(
     if p.ipnof > 4:
         C, n, elag = pynof.order_subspaces(C, n, elag, H, I, b_mnl, p)
 
-    C_old = np.copy(C)
-    n_old = np.copy(n)
-    for i in range(p.ndoc):
-        for j in range(p.ncwo):
-            k = p.no1 + p.ndns + (p.ndoc - i - 1) * p.ncwo + j
-            l = p.no1 + p.ndns + (p.ndoc - i - 1) + j * p.ndoc
-            C[:, l] = C_old[:, k]
-            n[l] = n_old[k]
-
     np.save(p.title + "_C.npy", C)
     np.save(p.title + "_n.npy", n)
 
@@ -270,30 +249,7 @@ def compute_energy(
         pynof.iterative_ERPA0(wfn, mol, n, C, H, I, b_mnl, cj12, ck12, elag, iter_erpa, p)
 
     if gradients:
-        C_old = np.copy(C)
-        for i in range(p.ndoc):
-            for j in range(p.ncwo):
-                k = p.no1 + p.ndns + (p.ndoc - i - 1) * p.ncwo + j
-                l = p.no1 + p.ndns + (p.ndoc - i - 1) + j * p.ndoc
-                C[:, k] = C_old[:, l]
-        n_old = np.copy(n)
-        for i in range(p.ndoc):
-            for j in range(p.ncwo):
-                k = p.no1 + p.ndns + (p.ndoc - i - 1) * p.ncwo + j
-                l = p.no1 + p.ndns + (p.ndoc - i - 1) + j * p.ndoc
-                n[k] = n_old[l]
-
         grad = pynof.compute_geom_gradients(wfn, mol, n, C, cj12, ck12, elag, p)
-
-        C_old = np.copy(C)
-        n_old = np.copy(n)
-        for i in range(p.ndoc):
-            for j in range(p.ncwo):
-                k = p.no1 + p.ndns + (p.ndoc - i - 1) * p.ncwo + j
-                l = p.no1 + p.ndns + (p.ndoc - i - 1) + j * p.ndoc
-                C[:, l] = C_old[:, k]
-                n[l] = n_old[k]
-
         return E_t, C, n, fmiug0, grad.flatten()
     else:
         return E_t, C, n, fmiug0

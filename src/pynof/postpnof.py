@@ -585,9 +585,9 @@ def ERIS_attenuated(pqrt, Cintra, Cinter, no1, ndoc, nsoc, ndns, ncwo, nbf5, nbf
         subspaces[i] = i
     for i in range(ndoc):
         subspaces[no1 + i] = no1 + i
-        ll = no1 + ndns + ncwo * (ndoc - i - 1)
-        ul = no1 + ndns + ncwo * (ndoc - i)
-        subspaces[ll:ul] = no1 + i
+        ll = no1 + ndns + (ndoc - i - 1)
+        ul = ll + ncwo * ndoc
+        subspaces[ll:ul:ndoc] = no1 + i
     for i in range(nsoc):
         subspaces[no1 + ndoc + i] = no1 + ndoc + i
     subspaces[nbf5:] = -1
@@ -620,9 +620,9 @@ def F_MO_attenuated(F_MO, Cintra, Cinter, no1, nalpha, ndoc, nsoc, ndns, ncwo, n
         subspaces[i] = i
     for i in range(ndoc):
         subspaces[no1 + i] = no1 + i
-        ll = no1 + ndns + ncwo * (ndoc - i - 1)
-        ul = no1 + ndns + ncwo * (ndoc - i)
-        subspaces[ll:ul] = no1 + i
+        ll = no1 + ndns + (ndoc - i - 1)
+        ul = ll + ncwo * ndoc
+        subspaces[ll:ul:ndoc] = no1 + i
     for i in range(nsoc):
         subspaces[no1 + ndoc + i] = no1 + ndoc + i
     subspaces[nbf5:] = -1
@@ -687,11 +687,11 @@ def ECorrNonDyn(n, C, H, I, b_mnl, p):
     beta = np.sqrt((1 - abs(1 - 2 * n)) * n)
 
     for l in range(p.ndoc):
-        ll = p.no1 + p.ndns + p.ncwo * (p.ndoc - l - 1)
-        ul = p.no1 + p.ndns + p.ncwo * (p.ndoc - l)
-        CK12nd[p.no1 + l, ll:ul] = beta[p.no1 + l] * beta[ll:ul]
-        CK12nd[ll:ul, p.no1 + l] = beta[ll:ul] * beta[p.no1 + l]
-        CK12nd[ll:ul, ll:ul] = -np.outer(beta[ll:ul], beta[ll:ul])
+        ll = p.no1 + p.ndns + (p.ndoc - l - 1)
+        ul = ll + p.ncwo * p.ndoc
+        CK12nd[p.no1 + l, ll:ul:ndoc] = beta[p.no1 + l] * beta[ll:ul:ndoc]
+        CK12nd[ll:ul:ndoc, p.no1 + l] = beta[ll:ul:ndoc] * beta[p.no1 + l]
+        CK12nd[ll:ul:ndoc, ll:ul:ndoc] = -np.outer(beta[ll:ul:ndoc], beta[ll:ul:ndoc])
 
     # C^K KMO
     J_MO, K_MO, H_core = pynof.computeJKH_MO(C, H, I, b_mnl, p)
@@ -906,6 +906,12 @@ def mbpt(n, C, H, I, b_mnl, Dipole, E_nuc, E_elec, p):
 
 def nofmp2(n, C, H, I, b_mnl, E_nuc, p):
 
+
+    print("================= Warning ====================")
+    print("    The NOF-MP2 requires a revision due to    ")
+    print("    new orbital sorting in the subspaces      ")
+    print("==============================================")
+
     t1 = time()
 
     print(" NOF-MP2")
@@ -981,11 +987,11 @@ def nofmp2(n, C, H, I, b_mnl, E_nuc, p):
     beta = np.sqrt((1 - abs(1 - 2 * n)) * n)
 
     for l in range(p.ndoc):
-        ll = p.no1 + p.ndns + p.ncwo * (p.ndoc - l - 1)
-        ul = p.no1 + p.ndns + p.ncwo * (p.ndoc - l)
-        CK12nd[p.no1 + l, ll:ul] = beta[p.no1 + l] * beta[ll:ul]
-        CK12nd[ll:ul, p.no1 + l] = beta[ll:ul] * beta[p.no1 + l]
-        CK12nd[ll:ul, ll:ul] = -np.outer(beta[ll:ul], beta[ll:ul])
+        ll = p.no1 + p.ndns + (p.ndoc - l - 1)
+        ul = ll + p.ncwo * p.ndoc
+        CK12nd[p.no1 + l, ll:ul:ndoc] = beta[p.no1 + l] * beta[ll:ul:ndoc]
+        CK12nd[ll:ul:ndoc, p.no1 + l] = beta[ll:ul:ndoc] * beta[p.no1 + l]
+        CK12nd[ll:ul:ndoc, ll:ul:ndoc] = -np.outer(beta[ll:ul:ndoc], beta[ll:ul:ndoc])
 
     # C^K KMO
     J_MO, K_MO, H_core = pynof.computeJKH_MO(C, H, I, b_mnl, p)
@@ -1060,9 +1066,9 @@ def CalTijab(iajb, F_MO, eig, FI1, FI2, p):
 def build_A(F_MO, FI1, FI2, no1, ndoc, ndns, nvir, ncwo, nbf):
     npair = np.zeros((nvir))
     for i in range(ndoc):
-        ll = ncwo * (ndoc - i - 1)
-        ul = ncwo * (ndoc - i)
-        npair[ll:ul] = i + 1
+        ll = (ndoc - i - 1)
+        ul = ll + ncwo * ndoc 
+        npair[ll:ul:ndoc] = i + 1
 
     A = np.empty((2 * ndns**2 * nvir**2 * (nbf - no1)))
     IROW = np.empty((2 * ndns**2 * nvir**2 * (nbf - no1)), dtype=np.int32)
@@ -1150,9 +1156,9 @@ def build_A(F_MO, FI1, FI2, no1, ndoc, ndns, nvir, ncwo, nbf):
 def build_R(T, B, F_MO, FI1, FI2, no1, ndoc, ndns, nvir, ncwo, nbf):
     npair = np.zeros((nvir))
     for i in range(ndoc):
-        ll = ncwo * (ndoc - i - 1)
-        ul = ncwo * (ndoc - i)
-        npair[ll:ul] = i + 1
+        ll = (ndoc - i - 1)
+        ul = ll + ncwo * ndoc
+        npair[ll:ul:ndoc] = i + 1
 
     Bp = np.zeros((ndns**2 * nvir**2))
 
@@ -1226,8 +1232,8 @@ def build_R(T, B, F_MO, FI1, FI2, no1, ndoc, ndns, nvir, ncwo, nbf):
 def build_B(iajb, FI1, FI2, ndoc, ndns, nvir, ncwo):
     B = np.zeros((ndns**2 * nvir**2))
     for i in prange(ndns):
-        lmin_i = ndns + ncwo * (ndns - i - 1)
-        lmax_i = ndns + ncwo * (ndns - i - 1) + ncwo
+        lmin_i = ndns + (ndns - i - 1)
+        lmax_i = lmin_i + ncwo * ndoc
         for j in range(ndns):
             if i == j:
                 for k in range(nvir):

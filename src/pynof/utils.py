@@ -614,12 +614,11 @@ def n_to_gammas_trigonometric(n, no1, ndoc, ndns, ncwo):
         gamma[i] = np.arccos(np.sqrt(2.0 * n[idx] - 1.0))
         prefactor = max(1 - n[idx], 1e-14)
         for j in range(ncwo - 1):
-            jg = ndoc + (ndoc - i - 1) * ncwo + j
-            ig = no1 + ndns + (ndoc - i - 1) * ncwo + j
+            jg = ndoc + (ndoc - i - 1) +  j * ndoc
+            ig = no1 + ndns + (ndoc - i - 1) + j * ndoc
             gamma[jg] = np.arcsin(np.sqrt(n[ig] / prefactor))
             prefactor = prefactor * (np.cos(gamma[jg])) ** 2
     return gamma
-
 
 @njit(cache=True)
 def n_to_gammas_softmax(n, no1, ndoc, ndns, ncwo):
@@ -629,13 +628,13 @@ def n_to_gammas_softmax(n, no1, ndoc, ndns, ncwo):
     gamma = np.zeros(nv)
     for i in range(ndoc):
 
-        ll = no1 + ndns + (ndoc - i - 1) * ncwo
-        ul = ll + ncwo
+        ll = no1 + ndns + (ndoc - i - 1)
+        ul = ll + ndoc * ncwo
 
         llg = ll - ndns + ndoc - no1
         ulg = ul - ndns + ndoc - no1
 
-        ns = n[ll:ul]
+        ns = n[ll:ul:ndoc]
 
         A = np.zeros((ncwo, ncwo))
         b = np.zeros((ncwo))
@@ -647,10 +646,9 @@ def n_to_gammas_softmax(n, no1, ndoc, ndns, ncwo):
 
         x = np.log(np.linalg.solve(A, b))
 
-        gamma[llg:ulg] = x
+        gamma[llg:ulg:ndoc] = x
 
     return gamma
-
 
 def n_to_gammas_ebi(n):
     """Transform n to gammas in the ebi encoding
@@ -678,10 +676,9 @@ def compute_gammas_trigonometric(ndoc, ncwo):
     for i in range(ndoc):
         gamma[i] = np.arccos(np.sqrt(2.0 * 0.999 - 1.0))
         for j in range(ncwo - 1):
-            ig = ndoc + (ndoc - i - 1) * ncwo + j
+            ig = ndoc + (ndoc - i - 1) + j * ncwo
             gamma[ig] = np.arcsin(np.sqrt(1.0 / (ncwo - j)))
     return gamma
-
 
 @njit(cache=True)
 def compute_gammas_softmax(ndoc, ncwo):
@@ -696,10 +693,9 @@ def compute_gammas_softmax(ndoc, ncwo):
     for i in range(ndoc):
         gamma[i] = np.log(0.999)
         for j in range(ncwo):
-            ig = ndoc + (ndoc - i - 1) * ncwo + j
+            ig = ndoc + (ndoc - i - 1) + j * ncwo
             gamma[ig] = np.log(0.001 / ncwo)
     return gamma
-
 
 # @njit(jit=True,cache=True)
 def compute_gammas_ebi(ndoc, nbf):
