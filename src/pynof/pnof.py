@@ -543,17 +543,17 @@ def compute_2RDM(pp, n):
         ul = ll + pp.ndoc * pp.ncwo
 
         n_strong = n[ldx]
-        n_weak = n[ll:pp.ndoc:ul]
+        n_weak = n[ll:ul:pp.ndoc]
 
         inter[ldx, ldx] = 0
-        inter[ldx, ll:pp.ndoc:ul] = 0
-        inter[ll:pp.ndoc:ul, ldx] = 0
-        inter[ll:pp.ndoc:ul, ll:pp.ndoc:ul] = 0
+        inter[ldx, ll:ul:pp.ndoc] = 0
+        inter[ll:ul:pp.ndoc, ldx] = 0
+        inter[ll:ul:pp.ndoc, ll:ul:pp.ndoc] = 0
 
         intra[ldx, ldx] = np.sqrt(n_strong * n_strong)
-        intra[ldx, ll:pp.ndoc:ul] = -np.sqrt(n_strong * n_weak)
-        intra[ll:pp.ndoc:ul, ldx] = -np.sqrt(n_strong * n_weak)
-        intra[ll:pp.ndoc:ul, ll:pp.ndoc:ul] = np.sqrt(np.outer(n_weak, n_weak))
+        intra[ldx, ll:ul:pp.ndoc] = -np.sqrt(n_strong * n_weak)
+        intra[ll:ul:pp.ndoc, ldx] = -np.sqrt(n_strong * n_weak)
+        intra[ll:ul:pp.ndoc, ll:ul:pp.ndoc] = np.sqrt(np.outer(n_weak, n_weak))
 
     for i in range(pp.nbeta, pp.nalpha):
         inter[i, i] = 0
@@ -579,9 +579,9 @@ def compute_2RDM(pp, n):
             ul = ll + pp.ndoc * pp.ncwo
 
             Pi_s[ldx, ldx] = 0
-            Pi_s[ldx, ll:pp.ndoc:ul] = 0
-            Pi_s[ll:pp.ndoc:ul, ldx] = 0
-            Pi_s[ll:pp.ndoc:ul, ll:pp.ndoc:ul] = 0
+            Pi_s[ldx, ll:ul:pp.ndoc] = 0
+            Pi_s[ll:ul:pp.ndoc, ldx] = 0
+            Pi_s[ll:ul:pp.ndoc, ll:ul:pp.ndoc] = 0
         for i in range(pp.nbeta, pp.nalpha):
             Pi_s[i, i] = 0
 
@@ -610,14 +610,14 @@ def compute_2RDM(pp, n):
                 ul = ll + pp.ndoc * pp.ncwo
 
                 n_strong = n[idx]
-                n_weak = n[ll:pp.ndoc:ul]
+                n_weak = n[ll:ul:pp.ndoc]
 
                 h = 1.0 - n_strong
                 coc = h / h_cut
                 arg = -(coc**2)
                 F = np.exp(arg)  # ! Hd/Hole
                 n_d[idx] = n_strong * F
-                n_d[ll:pp.ndoc:ul] = n_weak * F  # ROd = RO*Hd/Hole
+                n_d[ll:ul:pp.ndoc] = n_weak * F  # ROd = RO*Hd/Hole
 
             n_d12 = np.sqrt(n_d)
 
@@ -631,13 +631,13 @@ def compute_2RDM(pp, n):
                 ul = ll + pp.ndoc * pp.ncwo
 
                 inter[ldx, ldx] = 0
-                inter[ldx, ll:pp.ndoc:ul] = 0
-                inter[ll:pp.ndoc:ul, ldx] = 0
-                inter[ll:pp.ndoc:ul, ll:pp.ndoc:ul] = 0
+                inter[ldx, ll:ul:pp.ndoc] = 0
+                inter[ll:ul:pp.ndoc, ldx] = 0
+                inter[ll:ul:pp.ndoc, ll:ul:pp.ndoc] = 0
                 inter2[ldx, ldx] = 0
-                inter2[ldx, ll:pp.ndoc:ul] = 0
-                inter2[ll:pp.ndoc:ul, ldx] = 0
-                inter2[ll:pp.ndoc:ul, ll:pp.ndoc:ul] = 0
+                inter2[ldx, ll:ul:pp.ndoc] = 0
+                inter2[ll:ul:pp.ndoc, ldx] = 0
+                inter2[ll:ul:pp.ndoc, ll:ul:pp.ndoc] = 0
 
             inter[pp.nbeta :, pp.nbeta :] = 0
             inter[: pp.nalpha, : pp.nalpha] = 0
