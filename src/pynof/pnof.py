@@ -787,28 +787,24 @@ def ocupacion_softmax(x, no1, ndoc, nalpha, nv, nbf5, ndns, ncwo, HighSpin):
         ul = ll + ndoc * ncwo
         n_pi = n[ll:ul:ndoc]
 
-        ll_x = ll - ndns + ndoc - no1
+        ll_x = (ndoc -i - 1)
         ul_x = ll_x + ndoc * ncwo
-        dn_pi_dx_pi = dn_dx[ll:ul:ndoc, ll_x:ul_x:ndoc]
         dn_g_dx_pi = dn_dx[i, ll_x:ul_x:ndoc]
+        dn_pi_dx_pi = dn_dx[ll:ul:ndoc, ll_x:ul_x:ndoc]
         dn_pi_dx_g = dn_dx[ll:ul:ndoc, i]
 
         exp_x_pi = exp_x[ll_x:ul_x:ndoc]
 
-        sum_exp = exp_x[i] + np.sum(exp_x_pi)
+        den = 1 + np.sum(exp_x_pi)
 
-        n[i] = exp_x[i] / sum_exp
-        n_pi[:] = exp_x_pi / sum_exp
+        n[i] = 1 / den
+        n_pi[:] = exp_x_pi / den
 
-        dn_pi_dx_pi[:, :] = -np.outer(exp_x_pi, exp_x_pi) / sum_exp**2
-
-        dn_g_dx_pi[:] = -exp_x_pi * exp_x[i] / sum_exp**2
-        dn_pi_dx_g[:] = -exp_x_pi * exp_x[i] / sum_exp**2
-
-        dn_dx[i, i] = exp_x[i] * (sum_exp - exp_x[i]) / sum_exp**2
+        dn_g_dx_pi[:] = -n[i] * n_pi
+        dn_pi_dx_pi[:, :] = -np.outer(n_pi, n_pi)
 
         for j in range(ncwo):
-            dn_pi_dx_pi[j, j] = exp_x_pi[j] * (sum_exp - exp_x_pi[j]) / sum_exp**2
+            dn_pi_dx_pi[j, j] += n_pi[j]
 
     return n, dn_dx
 

@@ -82,24 +82,23 @@ def order_occupations_softmax(old_C, old_gamma, H, I, b_mnl, p):
     gamma = np.zeros((p.nv))
 
     # Sort ndoc subspaces
-    gamma_tmp = np.zeros((1 + p.ncwo))
     C_tmp = np.zeros((p.nbf, 1 + p.ncwo))
     for i in range(p.ndoc):
         old_ll = p.no1 + p.ndns + (p.ndoc - i - 1)
-        old_ul = old_ll + p.ndoc * p.ncwo
+        old_ul = old_ll + p.ndoc * (p.ncwo)
+
         C_tmp[:, 0] = old_C[:, p.no1 + i]
         C_tmp[:, 1:] = old_C[:, old_ll:old_ul:p.ndoc]
 
-        old_ll_x = old_ll - p.ndns + p.ndoc - p.no1
-        old_ul_x = old_ll_x + p.ndoc * p.ncwo
-        gamma_tmp[0] = old_gamma[i]
-        gamma_tmp[1:] = old_gamma[old_ll_x:old_ul_x:p.ndoc]
+        old_ll_x = old_ll - p.ndns - p.no1
+        old_ul_x = old_ll_x + p.ndoc * (p.ncwo)
 
+        gamma_tmp = np.concatenate(([0],old_gamma[old_ll_x:old_ul_x:p.ndoc]))
         sort_idx = gamma_tmp.argsort()[::-1]
-        gamma_tmp = gamma_tmp[sort_idx]
+
+        gamma_tmp = gamma_tmp[sort_idx] - max(gamma_tmp)
         C_tmp = C_tmp[:, sort_idx]
 
-        gamma[i] = gamma_tmp[0]
         gamma[old_ll_x:old_ul_x:p.ndoc] = gamma_tmp[1:]
         C[:, p.no1 + i] = C_tmp[:, 0]
         C[:, old_ll:old_ul:p.ndoc] = C_tmp[:, 1:]

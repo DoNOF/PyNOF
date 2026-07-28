@@ -624,29 +624,21 @@ def n_to_gammas_trigonometric(n, no1, ndoc, ndns, ncwo):
 def n_to_gammas_softmax(n, no1, ndoc, ndns, ncwo):
     """Transform n to gammas in the softmax encoding"""
 
-    nv = (ncwo + 1) * ndoc
+    nv = ncwo * ndoc
     gamma = np.zeros(nv)
     for i in range(ndoc):
 
         ll = no1 + ndns + (ndoc - i - 1)
-        ul = ll + ndoc * ncwo
+        ul = ll + ndoc * (ncwo - 1)
 
-        llg = ll - ndns + ndoc - no1
-        ulg = ul - ndns + ndoc - no1
+        llg = ll - ndns - no1
+        ulg = ul - ndns - no1
 
-        ns = n[ll:ul:ndoc]
-
-        A = np.zeros((ncwo, ncwo))
-        b = np.zeros((ncwo))
+        n_pi = n[ll:ul:ndoc]
+        gamma_pi = gamma[llg:ulg:ndoc]
 
         for j in range(ncwo):
-            A[j, :] = ns[j]
-            A[j, j] = ns[j] - 1
-            b[j] = -ns[j]
-
-        x = np.log(np.linalg.solve(A, b))
-
-        gamma[llg:ulg:ndoc] = x
+            gamma_pi[j] = np.log(max(n_pi[j], 1e-16)) - np.log(n[i])
 
     return gamma
 
@@ -687,14 +679,13 @@ def compute_gammas_softmax(ndoc, ncwo):
 
     # TODO: Add equations and look to reduce a variable
 
-    nv = (ncwo + 1) * ndoc
+    nv = ncwo * ndoc
 
     gamma = np.zeros((nv))
     for i in range(ndoc):
-        gamma[i] = np.log(0.999)
         for j in range(ncwo):
-            ig = ndoc + (ndoc - i - 1) + j * ncwo
-            gamma[ig] = np.log(0.001 / ncwo)
+            ig = (ndoc - i - 1) + j * ncwo
+            gamma[ig] = np.log(max(0.001 / ncwo, 1e-16)) - np.log(0.999)
     return gamma
 
 # @njit(jit=True,cache=True)
