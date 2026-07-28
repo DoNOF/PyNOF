@@ -1,4 +1,5 @@
 import pynof
+from libdlfind.callback import make_dlf_get_params
 
 mol = pynof.molecule(
     """
@@ -16,8 +17,9 @@ p.ipnof = 8
 p.RI = True
 p.gpu = True
 
+coords, mass, symbols, Z, key = p.wfn.molecule().to_arrays()
 dlf_get_params = make_dlf_get_params(
-    coords=coord,
+    coords=coords,
     #                                         icoord=3,    # internal coordiantes
     #                                         ncons=ncons, # number of constraints
     #                                         spec=spec,   # array for constraints

@@ -82,7 +82,6 @@ def compute_energy(
         if p.occ_method == "Trigonometric":
             gamma = pynof.n_to_gammas_trigonometric(n, p.no1, p.ndoc, p.ndns, p.ncwo)
         if p.occ_method == "Softmax":
-            p.nv = p.nbf5 - p.no1 - p.nsoc
             gamma = pynof.n_to_gammas_softmax(n, p.no1, p.ndoc, p.ndns, p.ncwo)
         if p.occ_method == "EBI":
             p.nbf5 = p.nbf
