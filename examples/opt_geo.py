@@ -15,5 +15,6 @@ p.ipnof = 8
 
 p.RI = True
 p.gpu = True
+p.title = 'h2o'
 
 pynof.optgeo(mol, p)

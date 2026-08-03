@@ -133,7 +133,7 @@ except:
     pass
 
 
-def optgeo_dlfind(mol, p, C=None, n=None, fmiug0=None, dlf_get_params=None):
+def optgeo_dlfind(mol, p, C=None, n=None, fmiug0=None, dlf_get_params=None,ncons=0,nconn=0):
     wfn = p.wfn
     coords, mass, symbols, Z, key = wfn.molecule().to_arrays()
     if C is None or n is None or fmiug0 is None:
@@ -176,22 +176,31 @@ def optgeo_dlfind(mol, p, C=None, n=None, fmiug0=None, dlf_get_params=None):
 
         dl_find(
             nvarin=3 * p.natoms,
+            nspec=p.natoms+5*ncons+2*nconn+p.natoms,
             dlf_get_gradient=dlf_get_gradient,
             dlf_get_params=dlf_get_params,
             dlf_put_coords=dlf_put_coords,
         )
 
-    except:
+    except Exception as error:
         print("\n\n\n")
-        print("================== Error Message ===================")
-        print("    DL-Find library is not installed. Please do:")
+        print("===================== Error Message ======================")
+        print("    DL-Find library is probably not installed. Please do:")
         print("    pip install libdlfind")
-        print("====================================================")
+        print(f"    Message: {error}")
+        print("==========================================================")
 
     final_geometry = _reshape_coords(traj_coordinates[-1])
     niter = len(traj_energies)
 
     _print_geometry(symbols, final_geometry, "Final Geometry (Bohrs)")
     _print_geometry(symbols, final_geometry * 0.529177, "Final Geometry (Angstroms)")
+    
+     
+    with open(p.title+"_final.xyz","w") as f:
+        print(f"{p.natoms}",file=f)
+        print(" ",file=f)
+        for symbol, xyz in zip(symbols, final_geometry * 0.529177):
+            print("{:s} {:10.4f} {:10.4f} {:10.4f}".format(symbol, xyz[0], xyz[1], xyz[2]),file=f)
 
     return final_geometry
