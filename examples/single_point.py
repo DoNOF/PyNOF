@@ -14,7 +14,7 @@ p = pynof.param(mol, "cc-pvdz")
 p.ipnof = 8
 
 p.RI = True
-p.gpu = False
+#p.gpu = True
 
 #p.occ_method="Trigonometric"
 p.occ_method="Softmax"

@@ -14,7 +14,7 @@ p = pynof.param(mol, "cc-pvdz")
 p.ipnof = 8
 
 p.RI = True
-p.gpu = True
+#p.gpu = True
 p.title = 'h2o'
 
 pynof.optgeo(mol, p)
